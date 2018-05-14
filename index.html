@@ -16,63 +16,52 @@
         <nav>
             <ul>
                 <li>
-                    <a href="#students-list">Students</a>
+                    <a href="#students-list">Manage students</a>
                 </li>
                 <li>
-                    <a href="#courses-list">Courses</a>
+                    <a href="#courses-list">Manage courses</a>
                 </li>
             </ul>
         </nav>
     </header>
 
     <section id="students-list">
-        <form action="">
+        <form>
             <table>
                 <caption>
                     <h3>Students list</h3>
                 </caption>
                 <tr>
-                    <th>Index</th>
-                    <th>First name</th>
-                    <th>Last name</th>
-                    <th>Birth date</th>
+                    <th>
+                        <input type="text" placeholder="Index">
+                    </th>
+                    <th>
+                        <input type="text" placeholder="First name">
+                    </th>
+                    <th>
+                        <input type="text" placeholder="Last name">
+                    </th>
+                    <th>
+                        <input type="date">
+                    </th>
                     <th colspan="3">Actions</th>
                 </tr>
                 <tr>
                     <td>
-                        <input type="text" readonly value="233456">
+                        <label for="index1">Index:</label>
+                        <input type="number" id="index1" name="index" readonly value="233456" min="0">
                     </td>
                     <td>
-                        <input type="text" value="Jan">
+                        <label for="firstName1">First name:</label>
+                        <input type="text" id="firstName1" name="firstName" value="Jan" required>
                     </td>
                     <td>
-                        <input type="text" value="Nowak">
+                        <label for="lastName1">Last name:</label>
+                        <input type="text" id="lastName1" name="lastName" value="Nowak" required>
                     </td>
                     <td>
-                        <input type="text" value="14/02/1992">
-                    </td>
-                    <td>
-                        <a href="#student-grades">Show grades</a>
-                    </td>
-                    <td>
-                        <button type="button">Modify</button>
-                    </td>
-                    <td>
-                        <button type="button">Delete</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="text" value="138789" readonly>
-                    </td>
-                    <td>
-                        <input type="text" value="Damian">
-                    </td>
-                    <td>
-                        <input type="text" value="Szalbierz">
-                    </td>
-                    <td>
-                        <input type="text" value="13/05/1993">
+                        <label for="birthDate1">Birth date:</label>
+                        <input type="date" id="birthDate1" name="birthDate" value="1992-02-14" required>
                     </td>
                     <td>
                         <a href="#student-grades">Show grades</a>
@@ -86,16 +75,47 @@
                 </tr>
                 <tr>
                     <td>
-                        <input type="text" placeholder="Index" required>
+                        <label for="index2">Index:</label>
+                        <input type="number" id="index2" name="index" value="138789" readonly min="0">
                     </td>
                     <td>
-                        <input type="text" placeholder="First name" required>
+                        <label for="firstName2">First name:</label>
+                        <input type="text" id="firstName2" name="firstName" value="Damian" required>
                     </td>
                     <td>
-                        <input type="text" placeholder="Last name" required>
+                        <label for="lastName2">Last name:</label>
+                        <input type="text" id="lastName2" name="lastName" value="Szalbierz" required>
                     </td>
                     <td>
-                        <input type="text" placeholder="Birth date" required>
+                        <label for="birthDate2">Birth date:</label>
+                        <input type="date" id="birthDate2" name="birthDate" value="1993-09-12" required>
+                    </td>
+                    <td>
+                        <a href="#student-grades">Show grades</a>
+                    </td>
+                    <td>
+                        <button type="button">Modify</button>
+                    </td>
+                    <td>
+                        <button type="button">Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="index">Index:</label>
+                        <input type="number" id="index" name="index" placeholder="Index" required min="0">
+                    </td>
+                    <td>
+                        <label for="firstName">First name:</label>
+                        <input type="text" id="firstName" name="firstName" placeholder="First name" required>
+                    </td>
+                    <td>
+                        <label for="lastName">Last name:</label>
+                        <input type="text" id="lastName" name="lastName" placeholder="Last name" required>
+                    </td>
+                    <td>
+                        <label for="birthDate">Birth date:</label>
+                        <input type="date" id="birthDate" name="birthDate" required>
                     </td>
                     <td colspan="3">
                         <button type="submit">Save student</button>
@@ -106,48 +126,147 @@
     </section>
 
     <section id="student-grades">
-        <table>
-            <caption>
-                <h3>Student Grades</h3>
-            </caption>
-            <tr>
-                <th>Value</th>
-                <th>Date</th>
-                <th>Course</th>
-            </tr>
-            <tr>
-                <th>
-                    <input type="text">
-                </th>
-                <th>
-                    <input type="text">
-                </th>
-                <th>
-                    <input type="text">
-                </th>
-            </tr>
-        </table>
+        <form>
+            <table>
+                <caption>
+                    <h3>Student Grades</h3>
+                </caption>
+                <tr>
+                    <th>
+                        <input type="number" placeholder="Value">
+                    </th>
+                    <th>
+                        <input type="date">
+                    </th>
+                    <th>
+                        <select name="course">
+                            <option value="" disabled selected>Search by course</option>
+                            <option value="Defense against black magic">Defense against black magic</option>
+                            <option value="Elixirs">Elixirs</option>
+                        </select>
+                    </th>
+                    <th colspan="2">Actions</th>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="value1">Value:</label>
+                        <select name="value" id="value1" required>
+                            <option value="" disabled>Select grade</option>
+                            <option value="2.0">2</option>
+                            <option value="3.0" selected>3</option>
+                            <option value="3.5">3,5</option>
+                            <option value="4.0">4</option>
+                            <option value="4.5">4,5</option>
+                            <option value="5.0">5</option>
+                        </select>
+                    </td>
+                    <td>
+                        <label for="gradeDate1">Date:</label>
+                        <input type="date" value="2018-05-21" id="gradeDate1" name="date" required>
+                    </td>
+                    <td>
+                        <label for="course1">Course</label>
+                        <select name="course" id="course1" required>
+                            <option value="" disabled>Select course</option>
+                            <option value="Defense against black magic" selected>Defense against black magic</option>
+                            <option value="Elixirs">Elixirs</option>
+                        </select>
+                    </td>
+                    <td>
+                        <button type="button">Modify</button>
+                    </td>
+                    <td>
+                        <button type="button">Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="value2">Value:</label>
+                        <select name="value" id="value2" required>
+                            <option value="" disabled>Select grade</option>
+                            <option value="2.0">2</option>
+                            <option value="3.0" selected>3</option>
+                            <option value="3.5">3,5</option>
+                            <option value="4.0">4</option>
+                            <option value="4.5">4,5</option>
+                            <option value="5.0">5</option>
+                        </select>
+                    </td>
+                    <td>
+                        <label for="gradeDate2">Date:</label>
+                        <input type="date" value="2018-06-25" id="gradeDate2" name="date" required>
+                    </td>
+                    <td>
+                        <label for="course2">Course</label>
+                        <select name="course" id="course2" required>
+                            <option value="" disabled>Select course</option>
+                            <option value="Defense against black magic">Defense against black magic</option>
+                            <option value="Elixirs" selected>Elixirs</option>
+                        </select>
+                    </td>
+                    <td>
+                        <button type="button">Modify</button>
+                    </td>
+                    <td>
+                        <button type="button">Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="value">Value:</label>
+                        <select name="value" id="value" required>
+                            <option value="" disabled selected>Select grade</option>
+                            <option value="2.0">2</option>
+                            <option value="3.0">3</option>
+                            <option value="3.5">3,5</option>
+                            <option value="4.0">4</option>
+                            <option value="4.5">4,5</option>
+                            <option value="5.0">5</option>
+                        </select>
+                    </td>
+                    <td>
+                        <label for="gradeDate">Date:</label>
+                        <input type="date" id="gradeDate" name="date" required>
+                    </td>
+                    <td>
+                        <label for="course">Course</label>
+                        <select name="course" id="course" required>
+                            <option value="" disabled selected>Select course</option>
+                            <option value="Defense against black magic">Defense against black magic</option>
+                            <option value="Elixirs">Elixirs</option>
+                        </select>
+                    </td>
+                    <td colspan="2">
+                        <button type="submit">Save grade</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
     </section>
 
     <section id="courses-list">
-        <form action="">
+        <form>
             <table>
                 <caption>
                     <h3>Courses list</h3>
                 </caption>
                 <tr>
-                    <th>Name</th>
-                    <th>Lecturer</th>
+                    <th>
+                        <input type="text" placeholder="Name">
+                    </th>
+                    <th>
+                        <input type="text" placeholder="Lecturer">
+                    </th>
                     <th colspan="2">Actions</th>
                 </tr>
                 <tr>
                     <td>
                         <label for="name">Name:</label>
-                        <input type="text" id="name" name="name" value="Defense against black magic">
+                        <input type="text" id="name" name="name" placeholder="Name" value="Defense against black magic" required>
                     </td>
                     <td>
                         <label for="lecturer">Lecturer:</label>
-                        <input type="text" id="lecturer" name="lecturer" value="Harry Potter">
+                        <input type="text" placeholder="Lecturer" id="lecturer" name="lecturer" value="Harry Potter" required>
                     </td>
                     <td>
                         <button type="button">Modify</button>
@@ -159,11 +278,11 @@
                 <tr>
                     <td>
                         <label for="name1">Name:</label>
-                        <input type="text" id="name1" name="name" value="Elixirs">
+                        <input type="text" id="name1" name="name" placeholder="Name" value="Elixirs" required>
                     </td>
                     <td>
                         <label for="lecturer1">Lecturer:</label>
-                        <input type="text" id="lecturer1" name="lecturer" value="Severus Snape">
+                        <input type="text" placeholder="Lecturer" id="lecturer1" name="lecturer" value="Severus Snape" required>
                     </td>
                     <td>
                         <button type="button">Modify</button>
@@ -175,11 +294,11 @@
                 <tr>
                     <td>
                         <label for="name2">Name:</label>
-                        <input type="text" id="name2" name="name" required placeholder="Name">
+                        <input type="text" id="name2" name="name" placeholder="Name" required>
                     </td>
                     <td>
                         <label for="lecturer2">Lecturer:</label>
-                        <input type="text" id="lecturer2" name="lecturer" required placeholder="Lecturer">
+                        <input type="text" placeholder="Lecturer" id="lecturer2" name="lecturer" required>
                     </td>
                     <td colspan="2">
                         <button type="submit">Save course</button>
@@ -190,25 +309,23 @@
     </section>
 
     <footer>
-        <footer>
-            <p>&copy; 2018 Damian Szalbierz</p>
-            <p>Contact information:
-                <a href="mailto:damianszalbierz@example.com">
-                    Mail me</a>.</p>
-            <nav>
-                <ul>
-                    <li>
-                        <a href="http://put.poznan.pl/" target="_blank">Poznan University of Technology</a>
-                    </li>
-                    <li>
-                        <a href="https://developer.mozilla.org/pl/" target="_blank">Mozilla Developer Network</a>
-                    </li>
-                    <li>
-                        <a href="https://www.w3schools.com" target="_blank">W3Schools</a>
-                    </li>
-                </ul>
-            </nav>
-        </footer>
+        <p>&copy; 2018 Damian Szalbierz</p>
+        <p>Contact information:
+            <a href="mailto:damianszalbierz@example.com">
+                Mail me</a>.</p>
+        <nav>
+            <ul>
+                <li>
+                    <a href="http://put.poznan.pl/" target="_blank">Poznan University of Technology</a>
+                </li>
+                <li>
+                    <a href="https://developer.mozilla.org/pl/" target="_blank">Mozilla Developer Network</a>
+                </li>
+                <li>
+                    <a href="https://www.w3schools.com" target="_blank">W3Schools</a>
+                </li>
+            </ul>
+        </nav>
     </footer>
 </body>
 
