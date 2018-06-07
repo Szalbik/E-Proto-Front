@@ -1,31 +1,107 @@
-/* body {
+body {
   margin: 0;
+  background-color: #b9ecc7;
+  color: #092b17;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
 }
 
 header {
-  display: block;
-  flex-wrap: wrap;
-  background-color: #7f5e5d;
-}
-
-header > .logo {
   display: flex;
   align-items: center;
+  justify-content: flex-start;
+  background-color: #85cca3;
 }
 
-header > .logo > img {
+header > img {
   max-width: 3em;
   max-height: 3em;
+  margin-left: 5em;
+  margin-right: 1em;
 }
 
-header > nav {
-  width: fit-content;
-}
-
-header > nav > ul {
-  padding: 0;
+main {
+  flex: 1;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+main > nav {
+  background: #a6ffcc;
+  flex: 1 1 200px;
+}
+
+main table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+main table th,
+main table td {
+  padding: 0.5em;
+}
+
+main table h3 {
+  font-size: 2em;
+  color: #537f66;
+  letter-spacing: 5px;
+  text-transform: capitalize;
+}
+
+main table tr:nth-of-type(odd) {
+  background-color: #85cca3;
+}
+main table tr:nth-of-type(even) {
+  background-color: #a6ffcc;
+}
+
+main table tr:first-of-type {
+  background-color: #092b17;
+  color: white;
+  font-size: 0.8em;
+}
+
+main table tr:first-of-type:hover {
+  background-color: #092b17;
+}
+
+main table tr:first-of-type input {
+  color: white;
+}
+
+main table tr:first-of-type input::placeholder {
+  color: rgba(255, 255, 255, 0.808);
+}
+
+main table tr:hover {
+  background-color: #537f66;
+}
+
+section {
+  flex: 2 1 768px;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+main input,
+select {
+  background-color: inherit;
+  border: none;
+  outline: none;
+  width: auto;
+  height: auto;
+}
+
+main input:invalid,
+select:invalid {
+  border-bottom: 3px solid rgba(223, 38, 38, 0.74);
+  background-color: inherit;
 }
 
 li {
@@ -34,18 +110,70 @@ li {
 
 li > a {
   text-decoration: none;
-  color: #ffbdba;
+  color: #092b17;
 }
 
 li > a:hover {
   text-decoration: underline;
-  color: #ff736d;
-} */
+  color: #537f66;
+}
+
+footer {
+  background: linear-gradient(
+    127deg,
+    rgba(83, 127, 102, 0.9),
+    rgb(166, 255, 204) 70.71%
+  );
+  display: flex;
+  justify-content: space-between;
+}
+
+footer p {
+  flex: 1;
+}
+
+footer p a {
+  text-decoration: none;
+  color: #a6ffcc;
+}
+
+footer p a:hover {
+  text-decoration: underline;
+}
+
+footer nav {
+  flex: 4;
+}
+
+footer nav ul {
+  display: flex;
+  justify-content: flex-end;
+}
+
+footer nav ul li {
+  flex: 1;
+}
 
 section {
   display: none;
 }
-
-section:target {
+section:target,
+section#content {
   display: block;
+}
+
+@media print {
+  footer,
+  nav,
+  header {
+    display: none;
+  }
+  main table h3 {
+    color: black;
+  }
+  body,
+  main table tr:nth-last-of-type(odd),
+  main table tr:nth-last-of-type(even) {
+    background-color: white;
+  }
 }

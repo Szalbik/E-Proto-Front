@@ -7,14 +7,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>E Proto</title>
     <link rel="stylesheet" href="styles.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe"
+        crossorigin="anonymous"></script>
 </head>
 
 <body>
     <header>
-        <div class="logo">
-            <img src="logo.png" alt="Logo" width="50" height="50">
-            <h1>Students E-Proto </h1>
-        </div>
+        <img src="logo.png" alt="Logo" width="50" height="50">
+        <h1>Students E-Proto </h1>
+    </header>
+
+    <main id="content">
         <nav>
             <ul>
                 <li>
@@ -25,291 +28,298 @@
                 </li>
             </ul>
         </nav>
-    </header>
 
-    <section id="students-list">
-        <form>
-            <table>
-                <caption>
-                    <h3>Students list</h3>
-                </caption>
-                <tr>
-                    <th>
-                        <input type="search" placeholder="Index">
-                    </th>
-                    <th>
-                        <input type="search" placeholder="First name">
-                    </th>
-                    <th>
-                        <input type="search" placeholder="Last name">
-                    </th>
-                    <th>
-                        <input type="search" placeholder="Date">
-                    </th>
-                    <th colspan="3">Actions</th>
-                </tr>
-                <tr>
-                    <td>
-                        <!-- <label for="index1">Index:</label> -->
-                        <input type="number" name="index" readonly value="233456" min="0">
-                    </td>
-                    <td>
-                        <!-- <label for="firstName1">First name:</label> -->
-                        <input type="text" name="firstName" value="Jan" required>
-                    </td>
-                    <td>
-                        <!-- <label for="lastName1">Last name:</label> -->
-                        <input type="text" name="lastName" value="Nowak" required>
-                    </td>
-                    <td>
-                        <!-- <label for="birthDate1">Birth date:</label> -->
-                        <input type="date" name="birthDate" value="1992-02-14" required>
-                    </td>
-                    <td>
-                        <a href="#student-grades">Show grades</a>
-                    </td>
-                    <td>
-                        <button type="button">Modify</button>
-                    </td>
-                    <td>
-                        <button type="button">Delete</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <!-- <label for="index2">Index:</label> -->
-                        <input type="number" name="index" value="138789" readonly min="0">
-                    </td>
-                    <td>
-                        <!-- <label for="firstName2">First name:</label> -->
-                        <input type="text" name="firstName" value="Damian" required>
-                    </td>
-                    <td>
-                        <!-- <label for="lastName2">Last name:</label> -->
-                        <input type="text" name="lastName" value="Szalbierz" required>
-                    </td>
-                    <td>
-                        <!-- <label for="birthDate2">Birth date:</label> -->
-                        <input type="date" name="birthDate" value="1993-09-12" required>
-                    </td>
-                    <td>
-                        <a href="#student-grades">Show grades</a>
-                    </td>
-                    <td>
-                        <button type="button">Modify</button>
-                    </td>
-                    <td>
-                        <button type="button">Delete</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <!-- <label for="index">Index:</label> -->
-                        <input type="number" name="index" placeholder="Index" required min="0">
-                    </td>
-                    <td>
-                        <!-- <label for="firstName">First name:</label> -->
-                        <input type="text" name="firstName" placeholder="First name" required>
-                    </td>
-                    <td>
-                        <!-- <label for="lastName">Last name:</label> -->
-                        <input type="text" name="lastName" placeholder="Last name" required>
-                    </td>
-                    <td>
-                        <!-- <label for="birthDate">Birth date:</label> -->
-                        <input type="date" name="birthDate" required>
-                    </td>
-                    <td colspan="3">
-                        <button type="submit">Save student</button>
-                    </td>
-                </tr>
-            </table>
-        </form>
-    </section>
+        <section id="students-list">
+            <form>
+                <div class="table-wrapper">
+                    <table>
+                        <caption>
+                            <h3>Students list</h3>
+                        </caption>
+                        <tr>
+                            <th>
+                                <input type="search" placeholder="Index">
+                            </th>
+                            <th>
+                                <input type="search" placeholder="First name">
+                            </th>
+                            <th>
+                                <input type="search" placeholder="Last name">
+                            </th>
+                            <th>
+                                <input type="search" placeholder="Date">
+                            </th>
+                            <th colspan="3">Actions</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <!-- <label for="index1">Index:</label> -->
+                                <input type="number" name="index" readonly value="233456" min="0">
+                            </td>
+                            <td>
+                                <!-- <label for="firstName1">First name:</label> -->
+                                <input type="text" name="firstName" value="Jan" required>
+                            </td>
+                            <td>
+                                <!-- <label for="lastName1">Last name:</label> -->
+                                <input type="text" name="lastName" value="Nowak" required>
+                            </td>
+                            <td>
+                                <!-- <label for="birthDate1">Birth date:</label> -->
+                                <input type="date" name="birthDate" value="1992-02-14" required>
+                            </td>
+                            <td>
+                                <a href="#student-grades">Show grades</a>
+                            </td>
+                            <td>
+                                <button type="button">Modify</button>
+                            </td>
+                            <td>
+                                <button type="button">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <!-- <label for="index2">Index:</label> -->
+                                <input type="number" name="index" value="138789" readonly min="0">
+                            </td>
+                            <td>
+                                <!-- <label for="firstName2">First name:</label> -->
+                                <input type="text" name="firstName" value="Damian" required>
+                            </td>
+                            <td>
+                                <!-- <label for="lastName2">Last name:</label> -->
+                                <input type="text" name="lastName" value="Szalbierz" required>
+                            </td>
+                            <td>
+                                <!-- <label for="birthDate2">Birth date:</label> -->
+                                <input type="date" name="birthDate" value="1993-09-12" required>
+                            </td>
+                            <td>
+                                <a href="#student-grades">Show grades</a>
+                            </td>
+                            <td>
+                                <button type="button">Modify</button>
+                            </td>
+                            <td>
+                                <button type="button">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <!-- <label for="index">Index:</label> -->
+                                <input type="number" name="index" placeholder="Index" required min="0">
+                            </td>
+                            <td>
+                                <!-- <label for="firstName">First name:</label> -->
+                                <input type="text" name="firstName" placeholder="First name" required>
+                            </td>
+                            <td>
+                                <!-- <label for="lastName">Last name:</label> -->
+                                <input type="text" name="lastName" placeholder="Last name" required>
+                            </td>
+                            <td>
+                                <!-- <label for="birthDate">Birth date:</label> -->
+                                <input type="date" name="birthDate" required>
+                            </td>
+                            <td colspan="3">
+                                <button type="submit">Save student</button>
+                            </td>
+                        </tr>
+                </div>
+                </table>
+            </form>
+        </section>
 
-    <section id="student-grades">
-        <form>
-            <table>
-                <caption>
-                    <h3>Student Grades</h3>
-                </caption>
-                <tr>
-                    <th>
-                        <input type="search" placeholder="Value">
-                    </th>
-                    <th>
-                        <input type="search" placeholder="Date">
-                    </th>
-                    <th>
-                        <!-- <select name="course">
-                            <option value="" disabled selected>Search by course</option>
-                            <option value="Defense against black magic">Defense against black magic</option>
-                            <option value="Elixirs">Elixirs</option>
-                        </select> -->
-                        <input type="search" placeholder="Course">
-                    </th>
-                    <th colspan="2">Actions</th>
-                </tr>
-                <tr>
-                    <td>
-                        <!-- <label for="value1">Value:</label> -->
-                        <select name="value" required>
-                            <option value="" disabled>Select grade</option>
-                            <option value="2.0">2</option>
-                            <option value="3.0" selected>3</option>
-                            <option value="3.5">3,5</option>
-                            <option value="4.0">4</option>
-                            <option value="4.5">4,5</option>
-                            <option value="5.0">5</option>
-                        </select>
-                    </td>
-                    <td>
-                        <!-- <label for="gradeDate1">Date:</label> -->
-                        <input type="date" value="2018-05-21" name="date" required>
-                    </td>
-                    <td>
-                        <!-- <label for="course1">Course</label> -->
-                        <select name="course" required>
-                            <option value="" disabled>Select course</option>
-                            <option value="Defense against black magic" selected>Defense against black magic</option>
-                            <option value="Elixirs">Elixirs</option>
-                        </select>
-                    </td>
-                    <td>
-                        <button type="button">Modify</button>
-                    </td>
-                    <td>
-                        <button type="button">Delete</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <!-- <label for="value2">Value:</label> -->
-                        <select name="value" required>
-                            <option value="" disabled>Select grade</option>
-                            <option value="2.0">2</option>
-                            <option value="3.0" selected>3</option>
-                            <option value="3.5">3,5</option>
-                            <option value="4.0">4</option>
-                            <option value="4.5">4,5</option>
-                            <option value="5.0">5</option>
-                        </select>
-                    </td>
-                    <td>
-                        <!-- <label for="gradeDate2">Date:</label> -->
-                        <input type="date" value="2018-06-25" name="date" required>
-                    </td>
-                    <td>
-                        <!-- <label for="course2">Course</label> -->
-                        <select name="course" required>
-                            <option value="" disabled>Select course</option>
-                            <option value="Defense against black magic">Defense against black magic</option>
-                            <option value="Elixirs" selected>Elixirs</option>
-                        </select>
-                    </td>
-                    <td>
-                        <button type="button">Modify</button>
-                    </td>
-                    <td>
-                        <button type="button">Delete</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <!-- <label for="value">Value:</label> -->
-                        <select name="value" required>
-                            <option value="" disabled selected>Select grade</option>
-                            <option value="2.0">2</option>
-                            <option value="3.0">3</option>
-                            <option value="3.5">3,5</option>
-                            <option value="4.0">4</option>
-                            <option value="4.5">4,5</option>
-                            <option value="5.0">5</option>
-                        </select>
-                    </td>
-                    <td>
-                        <!-- <label for="gradeDate">Date:</label> -->
-                        <input type="date" name="date" required>
-                    </td>
-                    <td>
-                        <!-- <label for="course">Course</label> -->
-                        <select name="course" required>
-                            <option value="" disabled selected>Select course</option>
-                            <option value="Defense against black magic">Defense against black magic</option>
-                            <option value="Elixirs">Elixirs</option>
-                        </select>
-                    </td>
-                    <td colspan="2">
-                        <button type="submit">Save grade</button>
-                    </td>
-                </tr>
-            </table>
-        </form>
-    </section>
+        <section id="student-grades">
+            <form>
+                <div class="table-wrapper">
+                    <table>
+                        <caption>
+                            <h3>Student Grades</h3>
+                        </caption>
+                        <tr>
+                            <th>
+                                <input type="search" placeholder="Value">
+                            </th>
+                            <th>
+                                <input type="search" placeholder="Date">
+                            </th>
+                            <th>
+                                <!-- <select name="course">
+                                <option value="" disabled selected>Search by course</option>
+                                <option value="Defense against black magic">Defense against black magic</option>
+                                <option value="Elixirs">Elixirs</option>
+                            </select> -->
+                                <input type="search" placeholder="Course">
+                            </th>
+                            <th colspan="2">Actions</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <!-- <label for="value1">Value:</label> -->
+                                <select name="value" required>
+                                    <option value="" disabled>Select grade</option>
+                                    <option value="2.0">2</option>
+                                    <option value="3.0" selected>3</option>
+                                    <option value="3.5">3,5</option>
+                                    <option value="4.0">4</option>
+                                    <option value="4.5">4,5</option>
+                                    <option value="5.0">5</option>
+                                </select>
+                            </td>
+                            <td>
+                                <!-- <label for="gradeDate1">Date:</label> -->
+                                <input type="date" value="2018-05-21" name="date" required>
+                            </td>
+                            <td>
+                                <!-- <label for="course1">Course</label> -->
+                                <select name="course" required>
+                                    <option value="" disabled>Select course</option>
+                                    <option value="Defense against black magic" selected>Defense against black magic</option>
+                                    <option value="Elixirs">Elixirs</option>
+                                </select>
+                            </td>
+                            <td>
+                                <button type="button">Modify</button>
+                            </td>
+                            <td>
+                                <button type="button">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <!-- <label for="value2">Value:</label> -->
+                                <select name="value" required>
+                                    <option value="" disabled>Select grade</option>
+                                    <option value="2.0">2</option>
+                                    <option value="3.0" selected>3</option>
+                                    <option value="3.5">3,5</option>
+                                    <option value="4.0">4</option>
+                                    <option value="4.5">4,5</option>
+                                    <option value="5.0">5</option>
+                                </select>
+                            </td>
+                            <td>
+                                <!-- <label for="gradeDate2">Date:</label> -->
+                                <input type="date" value="2018-06-25" name="date" required>
+                            </td>
+                            <td>
+                                <!-- <label for="course2">Course</label> -->
+                                <select name="course" required>
+                                    <option value="" disabled>Select course</option>
+                                    <option value="Defense against black magic">Defense against black magic</option>
+                                    <option value="Elixirs" selected>Elixirs</option>
+                                </select>
+                            </td>
+                            <td>
+                                <button type="button">Modify</button>
+                            </td>
+                            <td>
+                                <button type="button">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <!-- <label for="value">Value:</label> -->
+                                <select name="value" required>
+                                    <option value="" disabled selected>Select grade</option>
+                                    <option value="2.0">2</option>
+                                    <option value="3.0">3</option>
+                                    <option value="3.5">3,5</option>
+                                    <option value="4.0">4</option>
+                                    <option value="4.5">4,5</option>
+                                    <option value="5.0">5</option>
+                                </select>
+                            </td>
+                            <td>
+                                <!-- <label for="gradeDate">Date:</label> -->
+                                <input type="date" name="date" required>
+                            </td>
+                            <td>
+                                <!-- <label for="course">Course</label> -->
+                                <select name="course" required>
+                                    <option value="" disabled selected>Select course</option>
+                                    <option value="Defense against black magic">Defense against black magic</option>
+                                    <option value="Elixirs">Elixirs</option>
+                                </select>
+                            </td>
+                            <td colspan="2">
+                                <button type="submit">Save grade</button>
+                            </td>
+                        </tr>
+                </div>
+                </table>
+            </form>
+        </section>
 
-    <section id="courses-list">
-        <form>
-            <table>
-                <caption>
-                    <h3>Courses list</h3>
-                </caption>
-                <tr>
-                    <th>
-                        <input type="search" placeholder="Name">
-                    </th>
-                    <th>
-                        <input type="search" placeholder="Lecturer">
-                    </th>
-                    <th colspan="2">Actions</th>
-                </tr>
-                <tr>
-                    <td>
-                        <!-- <label for="name">Name:</label> -->
-                        <input type="text" name="name" placeholder="Name" value="Defense against black magic" required>
-                    </td>
-                    <td>
-                        <!-- <label for="lecturer">Lecturer:</label> -->
-                        <input type="text" placeholder="Lecturer" name="lecturer" value="Harry Potter" required>
-                    </td>
-                    <td>
-                        <button type="button">Modify</button>
-                    </td>
-                    <td>
-                        <button type="button">Delete</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <!-- <label for="name1">Name:</label> -->
-                        <input type="text" name="name" placeholder="Name" value="Elixirs" required>
-                    </td>
-                    <td>
-                        <!-- <label for="lecturer1">Lecturer:</label> -->
-                        <input type="text" placeholder="Lecturer" name="lecturer" value="Severus Snape" required>
-                    </td>
-                    <td>
-                        <button type="button">Modify</button>
-                    </td>
-                    <td>
-                        <button type="button">Delete</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <!-- <label for="name2">Name:</label> -->
-                        <input type="text" name="name" placeholder="Name" required>
-                    </td>
-                    <td>
-                        <!-- <label for="lecturer2">Lecturer:</label> -->
-                        <input type="text" placeholder="Lecturer" name="lecturer" required>
-                    </td>
-                    <td colspan="2">
-                        <button type="submit">Save course</button>
-                    </td>
-                </tr>
-            </table>
-        </form>
-    </section>
+        <section id="courses-list">
+            <form>
+                <div class="table-wrapper">
+                    <table>
+                        <caption>
+                            <h3>Courses list</h3>
+                        </caption>
+                        <tr>
+                            <th>
+                                <input type="search" placeholder="Name">
+                            </th>
+                            <th>
+                                <input type="search" placeholder="Lecturer">
+                            </th>
+                            <th colspan="2">Actions</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <!-- <label for="name">Name:</label> -->
+                                <input type="text" name="name" placeholder="Name" value="Defense against black magic" required>
+                            </td>
+                            <td>
+                                <!-- <label for="lecturer">Lecturer:</label> -->
+                                <input type="text" placeholder="Lecturer" name="lecturer" value="Harry Potter" required>
+                            </td>
+                            <td>
+                                <button type="button">Modify</button>
+                            </td>
+                            <td>
+                                <button type="button">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <!-- <label for="name1">Name:</label> -->
+                                <input type="text" name="name" placeholder="Name" value="Elixirs" required>
+                            </td>
+                            <td>
+                                <!-- <label for="lecturer1">Lecturer:</label> -->
+                                <input type="text" placeholder="Lecturer" name="lecturer" value="Severus Snape" required>
+                            </td>
+                            <td>
+                                <button type="button">Modify</button>
+                            </td>
+                            <td>
+                                <button type="button">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <!-- <label for="name2">Name:</label> -->
+                                <input type="text" name="name" placeholder="Name" required>
+                            </td>
+                            <td>
+                                <!-- <label for="lecturer2">Lecturer:</label> -->
+                                <input type="text" placeholder="Lecturer" name="lecturer" required>
+                            </td>
+                            <td colspan="2">
+                                <button type="submit">Save course</button>
+                            </td>
+                        </tr>
+                </div>
+                </table>
+            </form>
+        </section>
+    </main>
+
 
     <footer>
         <p>&copy; 2018 Damian Szalbierz</p>
