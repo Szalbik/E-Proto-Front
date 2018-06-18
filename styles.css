@@ -78,14 +78,14 @@ main table tr a:hover {
   color: #092b17;
 }
 
-main table tr:nth-of-type(odd) {
+main table tbody tr:nth-of-type(odd) {
   background-color: #85cca3;
 }
-main table tr:nth-of-type(even) {
+main table tbody tr:nth-of-type(even) {
   background-color: #a6ffcc;
 }
 
-main table tr:first-of-type {
+main table thead tr {
   background-color: #092b17;
   color: white;
   font-size: 0.8em;
@@ -95,30 +95,30 @@ th {
   font-weight: normal;
 }
 
-main table tr:first-of-type:hover {
+main table thead tr:hover {
   background-color: #092b17;
 }
 
-main table tr:first-of-type input {
+main table thead tr input {
   color: white;
 }
 
-main table tr:first-of-type input::placeholder {
+main table thead tr input::placeholder {
   color: rgba(255, 255, 255, 0.808);
 }
 
-main table tr:hover {
+main table tbody tr:hover {
   background-color: #537f66;
 }
 
 main table tr td:last-of-type {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
-main table tr:last-of-type:hover input::placeholder,
-main table tr:last-of-type:hover input {
+main table tfoot tr:hover input::placeholder,
+main table tfoot tr:hover input {
   color: rgba(255, 255, 255, 0.808);
 }
 
@@ -158,7 +158,7 @@ footer {
     rgb(166, 255, 204) 70.71%
   );
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 footer p {
@@ -198,15 +198,13 @@ section#content {
 @media print {
   footer,
   nav,
-  header {
+  header,
+  main table tr td:last-of-type,
+  main table tr th:last-of-type {
     display: none;
   }
   main table h3 {
     color: black;
-  }
-  main table tr td:last-of-type,
-  main table tr th:last-of-type {
-    display: none;
   }
   body,
   main table tr:nth-last-of-type(odd),
@@ -217,6 +215,7 @@ section#content {
   }
   main table tr:last-of-type {
     border: none;
+    display: none;
   }
   main table tr:first-of-type input::placeholder,
   main table tr:first-of-type:hover {
@@ -230,7 +229,11 @@ section#content {
   select:invalid {
     border: none;
   }
-  select::-ms-expand {
-    display: none;
+  select {
+    appearance: none;
+    /* for Firefox */
+    -moz-appearance: none;
+    /* for Chrome */
+    -webkit-appearance: none;
   }
 }
