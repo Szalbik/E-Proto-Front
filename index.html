@@ -34,7 +34,7 @@
         </nav>
 
         <section id="students-list">
-            <form>
+            <form data-bind="submit: addStudent">
                 <div class="table-wrapper">
                     <table>
                         <caption>
@@ -76,9 +76,8 @@
                                     <input type="date" name="birthDate" data-bind="value: birthDate" required>
                                 </td>
                                 <td>
-                                    <a href="#student-grades">Show grades</a>
-                                    <button type="button">Modify</button>
-                                    <button type="button">Delete</button>
+                                    <a data-bind="click: $root.showStudentGrades">Show grades</a>
+                                    <button data-bind="click: $root.removeStudent" type="button">Delete</button>
                                 </td>
                             </tr>
                         </tbody>
@@ -86,19 +85,19 @@
                             <tr>
                                 <td>
                                     <!-- <label for="index">Index:</label> -->
-                                    <input type="number" name="index" placeholder="Index" required min="0">
+                                    <input data-bind="value: studentToAdd.index" type="number" name="index" placeholder="Index" required min="0">
                                 </td>
                                 <td>
                                     <!-- <label for="firstName">First name:</label> -->
-                                    <input type="text" name="firstName" placeholder="First name" required>
+                                    <input data-bind="value: studentToAdd.firstName" type="text" name="firstName" placeholder="First name" required>
                                 </td>
                                 <td>
                                     <!-- <label for="lastName">Last name:</label> -->
-                                    <input type="text" name="lastName" placeholder="Last name" required>
+                                    <input data-bind="value: studentToAdd.lastName" type="text" name="lastName" placeholder="Last name" required>
                                 </td>
                                 <td>
                                     <!-- <label for="birthDate">Birth date:</label> -->
-                                    <input type="date" name="birthDate" required>
+                                    <input data-bind="value: studentToAdd.birthDate" type="date" name="birthDate" required>
                                 </td>
                                 <td colspan="3">
                                     <button type="submit">Save student</button>
@@ -111,7 +110,7 @@
         </section>
 
         <section id="student-grades">
-            <form>
+            <form data-bind="submit: addGrade">
                 <div class="table-wrapper">
                     <table>
                         <caption>
@@ -131,63 +130,44 @@
                                 <th colspan="2">Actions</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody data-bind="foreach: grades">
                             <tr>
                                 <td>
-                                    <!-- <label for="value1">Value:</label> -->
-                                    <select name="value" required>
-                                        <option value="" disabled>Select grade</option>
-                                        <option value="2.0">2</option>
-                                        <option value="3.0" selected>3</option>
-                                        <option value="3.5">3,5</option>
-                                        <option value="4.0">4</option>
-                                        <option value="4.5">4,5</option>
-                                        <option value="5.0">5</option>
+                                    <select data-bind="options: $root.availableGrades, value: value" name="value" required>
                                     </select>
                                 </td>
                                 <td>
-                                    <!-- <label for="gradeDate1">Date:</label> -->
-                                    <input type="date" value="2018-05-21" name="date" required>
+                                    <input data-bind="value: date" type="date" name="date" required>
                                 </td>
                                 <td>
-                                    <!-- <label for="course1">Course</label> -->
-                                    <select name="course" required>
-                                        <option value="" disabled>Select course</option>
-                                        <option value="Defense against black magic" selected>Defense against black magic</option>
-                                        <option value="Elixirs">Elixirs</option>
+
+                                    <pre data-bind="text: ko.toJSON($data.course, null, 2)"></pre>
+                                    <select data-bind="options: $root.courses,
+                                                        optionsCaption: 'Not working...',
+                                                        optionsText: function(item) { return item.name(); },
+                                                        optionsValue: function(item) { return item.id(); },
+                                                        value: function(item) { return item.id(); }">
                                     </select>
                                 </td>
                                 <td>
-                                    <button type="button">Modify</button>
-                                    <button type="button">Delete</button>
+                                    <button data-bind="click: $root.removeGrade" type="button">Delete</button>
                                 </td>
                             </tr>
                         </tbody>
                         <tfoot>
                             <tr>
                                 <td>
-                                    <!-- <label for="value">Value:</label> -->
-                                    <select name="value" required>
-                                        <option value="" disabled selected>Select grade</option>
-                                        <option value="2.0">2</option>
-                                        <option value="3.0">3</option>
-                                        <option value="3.5">3,5</option>
-                                        <option value="4.0">4</option>
-                                        <option value="4.5">4,5</option>
-                                        <option value="5.0">5</option>
-                                    </select>
+                                    <select data-bind="options: $root.availableGrades, value: gradeToAdd.value" name="value" required>
                                 </td>
                                 <td>
-                                    <!-- <label for="gradeDate">Date:</label> -->
-                                    <input type="date" name="date" required>
+                                    <input data-bind="value: gradeToAdd.date" type="date" name="date" required>
                                 </td>
                                 <td>
-                                    <!-- <label for="course">Course</label> -->
-                                    <select name="course" required>
-                                        <option value="" disabled selected>Select course</option>
-                                        <option value="Defense against black magic">Defense against black magic</option>
-                                        <option value="Elixirs">Elixirs</option>
-                                    </select>
+                                    <pre data-bind="text: ko.toJSON($data.gradeToAdd, null, 2)"></pre>
+                                    <select name="id" required data-bind="options: $root.courses,
+                                                                                      optionsText: function(i) { return i.name; },
+                                                                                      optionsValue: function(i) { return i.id; },
+                                                                                      value: gradeToAdd.course ">
                                 </td>
                                 <td colspan="2">
                                     <button type="submit">Save grade</button>
@@ -226,7 +206,6 @@
                                     <input type="text" placeholder="Lecturer" name="lecturer" data-bind="value: lecturer" required>
                                 </td>
                                 <td>
-                                    <button data-bind="click: $root.updateCourse" type="button">Modify</button>
                                     <button data-bind="click: $root.removeCourse" type="button">Delete</button>
                                 </td>
                             </tr>
@@ -234,10 +213,10 @@
                         <tfoot>
                             <tr>
                                 <td>
-                                    <input data-bind="value: newCourseNameText" type="text" name="name" placeholder="Name" required>
+                                    <input data-bind="value: courseToAdd.name" type="text" name="name" placeholder="Name" required>
                                 </td>
                                 <td>
-                                    <input data-bind="value: newCourseLecturerText" type="text" placeholder="Lecturer" name="lecturer" required>
+                                    <input data-bind="value: courseToAdd.lecturer" type="text" placeholder="Lecturer" name="lecturer" required>
                                 </td>
                                 <td colspan="2">
                                     <button type="submit">Save course</button>
