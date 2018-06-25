@@ -11,7 +11,7 @@
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-debug.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout.mapping/2.4.1/knockout.mapping.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script defer src="script.js"></script>
 </head>
 
@@ -43,16 +43,16 @@
                         <thead>
                             <tr>
                                 <th>
-                                    <input type="search" placeholder="Index">
+                                    <input data-bind="textInput: studentSearch.index" type="search" placeholder="Index">
                                 </th>
                                 <th>
-                                    <input type="search" placeholder="First name">
+                                    <input data-bind="textInput: studentSearch.firstName" type="search" placeholder="First name">
                                 </th>
                                 <th>
-                                    <input type="search" placeholder="Last name">
+                                    <input data-bind="textInput: studentSearch.lastName" type="search" placeholder="Last name">
                                 </th>
                                 <th>
-                                    <input type="search" placeholder="Date">
+                                    <input data-bind="textInput: studentSearch.birthDate" type="search" placeholder="Date" onfocus="(this.type='date')" onblur="(this.type='text')">
                                 </th>
                                 <th colspan="3">Actions</th>
                             </tr>
@@ -76,8 +76,8 @@
                                     <input type="date" name="birthDate" data-bind="value: birthDate" required>
                                 </td>
                                 <td>
-                                    <a data-bind="click: $root.showStudentGrades">Show grades</a>
-                                    <button data-bind="click: $root.removeStudent" type="button">Delete</button>
+                                    <a data-bind="click: $parent.onClickGrades">Show grades</a>
+                                    <button data-bind="click: $parent.deleteStudent.bind($data)" type="button">Delete</button>
                                 </td>
                             </tr>
                         </tbody>
@@ -85,7 +85,7 @@
                             <tr>
                                 <td>
                                     <!-- <label for="index">Index:</label> -->
-                                    <input data-bind="value: studentToAdd.index" type="number" name="index" placeholder="Index" required min="0">
+                                    <!-- <input data-bind="value: studentToAdd.index" type="number" name="index" placeholder="Index" required min="0"> -->
                                 </td>
                                 <td>
                                     <!-- <label for="firstName">First name:</label> -->
@@ -119,13 +119,13 @@
                         <thead>
                             <tr>
                                 <th>
-                                    <input type="search" placeholder="Value">
+                                    <input data-bind="textInput: gradeSearch.value" type="search" placeholder="Value">
                                 </th>
                                 <th>
-                                    <input type="search" placeholder="Date">
+                                    <input data-bind="textInput: gradeSearch.date" type="search" placeholder="Date">
                                 </th>
                                 <th>
-                                    <input type="search" placeholder="Course">
+                                    <input data-bind="textInput: gradeSearch.course" type="search" placeholder="Course">
                                 </th>
                                 <th colspan="2">Actions</th>
                             </tr>
@@ -133,8 +133,7 @@
                         <tbody data-bind="foreach: grades">
                             <tr>
                                 <td>
-                                    <select data-bind="options: $root.availableGrades, value: value" name="value" required>
-                                    </select>
+                                    <input data-bind="value: value" type="number" min="2" max="5" step="0.5" name="grades[value]" required>
                                 </td>
                                 <td>
                                     <input data-bind="value: date" type="date" name="date" required>
@@ -142,15 +141,17 @@
                                 <td>
 
                                     <pre data-bind="text: ko.toJSON($data.course, null, 2)"></pre>
-                                    <select data-bind="options: $root.courses,
-                                                        optionsCaption: 'Not working...',
-                                                        optionsText: function(item) { return item.name(); },
-                                                        optionsValue: function(item) { return item.id(); },
-                                                        value: function(item) { return item.id(); }">
-                                    </select>
+                                    <select data-bind="options: $parent.courses,
+                                                optionsText: function(item) {
+                                                return item.name
+                                            },
+                                            optionsValue: function(item) {
+                                                return item.id
+                                            },
+                                            value: course"></select>
                                 </td>
                                 <td>
-                                    <button data-bind="click: $root.removeGrade" type="button">Delete</button>
+                                    <button data-bind="click: $parent.deleteGrade.bind($data)" type="button">Delete</button>
                                 </td>
                             </tr>
                         </tbody>
@@ -189,10 +190,10 @@
                         <thead>
                             <tr>
                                 <th>
-                                    <input type="search" placeholder="Name">
+                                    <input data-bind="textInput: courseSearch.name" type="search" placeholder="Name">
                                 </th>
                                 <th>
-                                    <input type="search" placeholder="Lecturer">
+                                    <input data-bind="textInput: courseSearch.lecturer" type="search" placeholder="Lecturer">
                                 </th>
                                 <th colspan="2">Actions</th>
                             </tr>
@@ -206,7 +207,7 @@
                                     <input type="text" placeholder="Lecturer" name="lecturer" data-bind="value: lecturer" required>
                                 </td>
                                 <td>
-                                    <button data-bind="click: $root.removeCourse" type="button">Delete</button>
+                                    <button data-bind="click: $parent.deleteCourse.bind($data)" type="button">Delete</button>
                                 </td>
                             </tr>
                         </tbody>
