@@ -135,7 +135,10 @@ class Course {
 }
 
 class Grade {
-  constructor(data = { id: "", value: "", course: "", date: "" }, student = 0) {
+  constructor(
+    data = { id: "", value: "", course: { id: "" }, date: "" },
+    student = 0
+  ) {
     this.student = student;
     this.id = new ko.observable(data.id);
     this.value = new ko.observable(data.value);
